@@ -132,7 +132,32 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/CovidTrend'
-  
+  /sumcovid/:
+      get:
+        summary: Returns the sum of the new covid cases in each province.
+        operationId: controller.get_sum_covid19
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/SumCovid' 
+  /pmtrend/:
+      get:
+        summary: Returns the PM2.5 trend
+        operationId: controller.get_pm_trend
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PmTrend'
 
 components:
   schemas:
@@ -183,5 +208,23 @@ components:
         population:
           type: integer
         Newcovid:
+          type: integer
+    PmTrend:
+      type: object
+      properties:
+        province:
+          type: string
+        population:
+          type: integer
+        pm:
+          type: integer
+    SumCovid:
+      type: object
+      properties:
+        province:
+          type: string
+        population:
+          type: integer
+        sumcovid:
           type: integer
     
