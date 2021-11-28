@@ -13,10 +13,9 @@ Locatitude API for getting information from your location
     env/bin/activate # macOS and Linux
     env\Scripts\activate.bat # Windows
     ```
-3. Generate code from the OAS (type them all in one line, For Windows’ command prompt, use the ^ character instead of \ to continue on the second line)
+3. Generate code from the OAS (type them all in one line)
     ```bash
-    java -jar openapi-generator-cli-X.Y.Z.jar generate \
-    -i openapi/locatitude-api.yaml -o autogen -g python-flask
+    java -jar openapi-generator-cli-X.Y.Z.jar generate -i openapi/locatitude-api.yaml -o autogen -g python-flask
     ```
 4. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install requirement.txt
     ```bash
