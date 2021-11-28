@@ -1,4 +1,4 @@
-Rain API Server
+Locatitude API Server
 ===============
 
-An example project for RESTful API development using OpenAPI and Python.
+Locatitude API for getting information from your location
