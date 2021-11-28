@@ -118,7 +118,7 @@ paths:
                 schema:
                   type: array
                   items:
-                    $ref: '#/components/schemas/ProvincePopulation'
+                    $ref: '#/components/schemas/Population'
   /covidtrend/:
       get:
         summary: Returns the covid19 trend
@@ -132,7 +132,7 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/CovidTrend'
-
+  
 
 components:
   schemas:
@@ -175,13 +175,6 @@ components:
           type: integer
         totalcovid:
           type: integer 
-    ProvincePopulation:
-      type: object
-      properties:
-        province:
-          type: string
-        population:
-          type: integer
     CovidTrend:
       type: object
       properties:
