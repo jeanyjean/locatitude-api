@@ -1,0 +1,194 @@
+openapi: 3.0.0
+info:
+  title: Locatitude API
+  description: This API provides the following 
+    * latitude and longitude of the current location
+    * PM 2.5 of the current location
+  version: 1.0.0
+servers:
+- url: /locatitude
+paths:
+  /latlong/{date}:
+    parameters:
+    - name: date
+      in: path
+      required: true
+      schema:
+        type: string
+        format: date
+    get:
+      summary: Returns the latitude and longitude of a specific date
+      operationId: controller.get_lat_long
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LatLong'
+  /pm/{date}:
+      parameters:
+      - name: date
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date
+      get:
+        summary: Returns the PM2.5 of a specific date
+        operationId: controller.get_pm
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PM25'
+  /province/{date}:
+      parameters:
+      - name: date
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date
+      get:
+        summary: Returns the province of a specific date
+        operationId: controller.get_province
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Province'
+  /population/{province}:
+      parameters:
+      - name: province
+        in: path
+        required: true
+        schema:
+          type: string
+      get:
+        summary: Returns the population of a province
+        operationId: controller.get_population
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Population'
+  /covid19/{date}:
+      parameters:
+      - name: date
+        in: path
+        required: true
+        schema:
+          type: string
+      get:
+        summary: Returns the covid19 cases of a specific date
+        operationId: controller.get_covid19
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Covid19'
+  /provincespopulation/:
+      get:
+        summary: Returns the population of all the provinces
+        operationId: controller.get_provinces_population
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ProvincePopulation'
+  /covidtrend/:
+      get:
+        summary: Returns the covid19 trend
+        operationId: controller.get_covid19_trend
+        responses:
+          200:
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CovidTrend'
+
+
+components:
+  schemas:
+    LatLong:
+      type: object
+      properties:
+        timeStamp:
+          type: string
+        lat:
+          type: number
+        long:
+          type: number
+    PM25:
+      type: object
+      properties:
+        timeStamp:
+          type: string
+        pm:
+          type: integer
+    Province:
+      type: object
+      properties:
+        timeStamp:
+          type: string
+        province:
+          type: string 
+    Population:
+      type: object
+      properties:
+        province:
+          type: string
+        population:
+          type: integer
+    Covid19:
+      type: object
+      properties:
+        timeStamp:
+          type: string
+        newcovid:
+          type: integer
+        totalcovid:
+          type: integer 
+    ProvincePopulation:
+      type: object
+      properties:
+        province:
+          type: string
+        population:
+          type: integer
+    CovidTrend:
+      type: object
+      properties:
+        province:
+          type: string
+        population:
+          type: integer
+        Newcovid:
+          type: integer
+    
