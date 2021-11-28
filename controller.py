@@ -52,7 +52,7 @@ def get_province(date):
         """,
         [date],
     )
-    result = [models.PM25(timestamp, province) for timestamp, province in cs.fetchall()]
+    result = [models.Province(timestamp, province) for timestamp, province in cs.fetchall()]
     cs.close()
     return result
 
@@ -103,7 +103,7 @@ def get_provinces_population():
         """
     )
     result = [
-        models.ProvincePopulation(province, population)
+        models.Population(province, population)
         for province, population in cs.fetchall()
     ]
     cs.close()
@@ -114,9 +114,10 @@ def get_covid19_trend():
     cs = db.cursor()
     cs.execute(
         """
-        SELECT p.province, population, newcovid
+        SELECT p.province, population, AVG(newcovid)
         FROM population p
         INNER JOIN covid19 c ON p.province=c.province
+        GROUP BY province, population
         """
     )
     result = [
@@ -149,14 +150,48 @@ def get_pm_trend():
     cs = db.cursor()
     cs.execute(
         """
-        SELECT p.province, population, pm25
+        SELECT p.province, population, AVG(pm25)
         FROM population p
         INNER JOIN pm25andprovince pm ON p.province=pm.province
+        GROUP BY province, population
         """
     )
     result = [
         models.PmTrend(province, population, pm25)
         for province, population, pm25 in cs.fetchall()
     ]
+    cs.close()
+    return result
+
+def get_new_covid19_each_day():
+    cs = db.cursor()
+    cs.execute("""
+        SELECT timestamp, newcovid
+        FROM covid19
+        """)
+    result = [models.Covid19(timestamp, newcovid) for timestamp, newcovid in cs.fetchall()]
+    cs.close()
+    return result
+
+def get_pm_each_day():
+    cs = db.cursor()
+    cs.execute("""
+        SELECT timestamp, pm25
+        FROM pm25andprovince
+        """)
+    result = [models.PM25(timestamp, pm25) for timestamp, pm25 in cs.fetchall()]
+    cs.close()
+    return result
+
+def get_show_all():
+    cs = db.cursor()
+    cs.execute("""
+        SELECT l.timestamp, l.latitude, l.longitude, p.province, population, pm25, newcovid, totalcovid
+        FROM latlon l
+        INNER JOIN pm25andprovince p ON l.timestamp = p.timestamp
+        INNER JOIN population pop ON p.province = pop.province
+        INNER JOIN covid19 c ON l.timestamp = c.timestamp
+        """)
+    result = [models.AllDetails(timestamp, lat, long, pro, pop, pm, newcovid, totalcovid) for timestamp, lat, long, pro, pop, pm, newcovid, totalcovid in cs.fetchall()]
     cs.close()
     return result

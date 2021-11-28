@@ -1,9 +1,15 @@
 openapi: 3.0.0
 info:
   title: Locatitude API
-  description: This API provides the following 
-    * latitude and longitude of the current location
+  description: | 
+    This API provides the following 
+    * Latitude and Longitude of the current location
     * PM 2.5 of the current location
+    * Population in the current location
+    * Number of Covid 19 cases near the current location
+    * Covid19 trend for each province
+    * PM2.5 trend for each province
+    * Infection rate of 1 million people per day for each province
   version: 1.0.0
 servers:
 - url: /locatitude
@@ -87,7 +93,7 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/Population'
-  /covid19/{date}:
+  /covid/{date}:
       parameters:
       - name: date
         in: path
@@ -106,7 +112,7 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/Covid19'
-  /provincespopulation/:
+  /population/allprovinces:
       get:
         summary: Returns the population of all the provinces
         operationId: controller.get_provinces_population
@@ -119,7 +125,7 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/Population'
-  /covidtrend/:
+  /covid/trend/:
       get:
         summary: Returns the covid19 trend
         operationId: controller.get_covid19_trend
@@ -132,7 +138,7 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/CovidTrend'
-  /sumcovid/:
+  /covid/sum/:
       get:
         summary: Returns the sum of the new covid cases in each province.
         operationId: controller.get_sum_covid19
@@ -145,7 +151,7 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/SumCovid' 
-  /pmtrend/:
+  /pm/trend/:
       get:
         summary: Returns the PM2.5 trend
         operationId: controller.get_pm_trend
@@ -158,6 +164,45 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/PmTrend'
+  /covid/new/eachday/:
+    get:
+      summary: Returns the new covid cases of each day
+      operationId: controller.get_new_covid19_each_day
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewCovidEachDay'
+  /pm/eachday/:
+    get:
+      summary: Returns the PM2.5 of each day
+      operationId: controller.get_pm_each_day
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PM25'
+  /showall/:
+    get:
+      summary: Returns all the information of each day
+      operationId: controller.get_show_all
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AllDetails'
 
 components:
   schemas:
@@ -207,8 +252,8 @@ components:
           type: string
         population:
           type: integer
-        Newcovid:
-          type: integer
+        AvgCovid:
+          type: number
     PmTrend:
       type: object
       properties:
@@ -216,8 +261,8 @@ components:
           type: string
         population:
           type: integer
-        pm:
-          type: integer
+        AvgPM:
+          type: number
     SumCovid:
       type: object
       properties:
@@ -227,4 +272,30 @@ components:
           type: integer
         sumcovid:
           type: integer
+    NewCovidEachDay:
+      type: object
+      properties:
+        timeStamp:
+          type: string
+        newcovid:
+          type: integer
+    AllDetails:
+      type: object
+      properties:
+        timeStamp:
+          type: string
+        lat:
+          type: number
+        long:
+          type: number
+        province:
+          type: string
+        population:
+          type: integer
+        pm:
+          type: integer
+        newcovid:
+          type: integer
+        totalcovid:
+          type: integer 
     
