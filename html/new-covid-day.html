@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Average Monthly Rainfalls</title>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body>
+  <div id="chart" style="width:100%;height:75vh;"></div>
+  <script>
+    async function createChart() {
+      var resp = await fetch('http://localhost:3000/graphql', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `
+          {
+            covidNewEachday {
+              timeStamp
+              newcovid 
+            }
+          }`
+        })
+      });
+      var json = await resp.json();
+      var table = json.data;
+      var data = [ {
+        x: table.covidNewEachday.map(row => row.timeStamp),
+        y: table.covidNewEachday.map(row => row.newcovid),
+        type: 'line',
+      }];
+
+      var layout = {
+        title: 'New Covid cases in visited location of each days',
+        xaxis: {
+          title: 'DateTime',
+          tickvals: table.covidNewEachday.map(row => row.timeStamp),
+        },
+        yaxis: {
+          title: 'New Covid cases',
+          range: [0,2000]
+        }
+      };
+      var config = { responsive: true };
+      Plotly.newPlot("chart", data, layout, config);
+    } 
+    createChart();
+  </script>
+</body>
+</html>
