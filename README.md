@@ -36,5 +36,6 @@ Locatitude API for getting information from your location
 8. Open the page http://localhost:3000/graphql <br />
  The browser should display GraphQL window
 
-9. Open the file html/index.html with your web browser
+9. Open the file html/index.html with your web browser <br />
+
 ![alt text](https://sv1.picz.in.th/images/2021/11/28/6Zt3vI.jpg)
