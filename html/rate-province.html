@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Average Monthly Rainfalls</title>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body>
+  <div id="chart" style="width:100%;height:75vh;"></div>
+  <script>
+    async function createChart() {
+      var resp = await fetch('http://localhost:3000/graphql', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `
+          {
+            covidTrend {
+                province
+                population
+                avgCovid
+            }
+        }`
+        })
+      });
+      var json = await resp.json();
+      var table = json.data;
+      var population = table.covidTrend.map(row => row.population);
+      var avgcovid = table.covidTrend.map(row => row.avgCovid);
+      var rate = []
+
+      for (let i = 0; i < table.covidTrend.length; i++) {
+        let ratevalue = (avgcovid[i] * 1000000) / population[i];
+        rate.push(ratevalue.toFixed(2));
+      }
+      console.log(rate);
+
+      var data = [ {
+        x: table.covidTrend.map(row => row.province),
+        y: rate,
+        type: 'bar',
+      }];
+    
+      
+      var layout = {
+        title: 'Infection rate of 1 million people per day for each province',
+        xaxis: {
+          title: 'Province',
+        },
+        yaxis: {
+          title: 'Rate',
+          range: [0,200]
+        }
+      };
+      var config = { responsive: true };
+      Plotly.newPlot("chart", data, layout, config);
+    } 
+    createChart();
+  </script>
+</body>
+</html>
