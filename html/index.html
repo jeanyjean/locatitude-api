@@ -1,18 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Locatitude API</title>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-</head>
-<body>
-  <h1>Locatitude API</h1>
+<!doctype html>
 
-  <ul>
-    <li><a href="new-covid-day.html">New Covid cases in visited location of each days</a></li>
-    <li><a href="pm-day.html">PM2.5 value in visited location of each days</a></li>
-    <li><a href="rate-province.html">Covid19 infection rate of 1 million people per day for each province</a></li>
-  </ul>
+<html lang="en-US">
+	<head>
+        <title>Locatitude API</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Unika - Responsive One Page HTML5 Template</title>
+		<meta name="description" content="Unika - Responsive One Page HTML5 Template">
+		<meta name="keywords" content="HTML5, Bootsrtrap, One Page, Responsive, Template, Portfolio" />
+		<meta name="author" content="imransdesign.com">
 
-</body>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'> <!-- Body font -->
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'> <!-- Navbar font -->
+
+		<link rel="stylesheet" href="inc/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="inc/animations/css/animate.min.css">
+		<link rel="stylesheet" href="inc/font-awesome/css/font-awesome.min.css"> <!-- Font Icons -->
+		<link rel="stylesheet" href="inc/owl-carousel/css/owl.carousel.css">
+		<link rel="stylesheet" href="inc/owl-carousel/css/owl.theme.css">
+        
+        <link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/mobile.css">
+
+		<link rel="stylesheet" href="css/skin/cool-gray.css">
+        
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+
+	</head>
+
+    <body data-spy="scroll" data-target="#main-navbar">
+        <div class="page-loader"></div>  <!-- Display loading image while page loads -->
+    	<div class="body">
+        
+            <!--========== BEGIN HEADER ==========-->
+            <header id="header" class="header-main">
+
+                <!-- Begin Navbar -->
+                <nav id="main-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation"> <!-- Classes: navbar-default, navbar-inverse, navbar-fixed-top, navbar-fixed-bottom, navbar-transparent. Note: If you use non-transparent navbar, set "height: 98px;" to #header -->
+
+                  <div class="container">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="page-scroll" href="body">Home</a></li>
+                            <li><a class="page-scroll" href="#portfolio-section">Group Member</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container -->
+                </nav>
+                <!-- End Navbar -->
+
+            </header>
+            <!-- ========= END HEADER =========-->
+            
+            
+        	<!-- Begin text carousel intro section -->
+			<section id="text-carousel-intro-section" class="parallax" data-stellar-background-ratio="0.5" style="background-image: url(img/slider-bg.jpg);">
+				
+				<div class="container" >
+					<div class="caption text-center text-white" data-stellar-ratio="0.7">
+
+						<div id="owl-intro-text" class="owl-carousel">
+                            <div class="item">
+								<h1>Locatitude API</h1>
+								<p>Swagger</p>
+								<div class="extra-space-l"></div>
+								<a class="btn btn-blank" href="http://localhost:8080//locatitude/ui" target="_blank" role="button">View API!</a>
+							</div>
+							<div class="item">
+								<h1>New Covid cases in visited location of each days</h1>
+								<p>Shows how many cases of COVID-19 cases increased in the places we visited each day</p>
+                                <div class="extra-space-l"></div>
+								<a class="btn btn-blank" href="new-covid-day.html" role="button">View Graph!</a>
+							</div>
+							<div class="item">
+								<h1>PM2.5 value in visited location of each days</h1>
+								<p>Show the PM2.5 value in the places you visited each day</p>
+								<div class="extra-space-l"></div>
+								<a class="btn btn-blank" href="pm-day.html" role="button">View Graph!</a>
+							</div>
+							<div class="item">
+								<h1>Covid19 infection rate of 1 million people per day for each province</h1>
+								<p>Shows the Covid19 infection rate of 1 million people per day for each province</p>
+								<div class="extra-space-l"></div>
+								<a class="btn btn-blank" href="rate-province.html" role="button">View Graph!</a>
+							</div>
+                            
+						</div>
+
+					</div> <!-- /.caption -->
+				</div> <!-- /.container -->
+
+			</section>
+			<!-- End text carousel intro section -->
+                
+                
+       
+                
+            <!-- Begin Portfolio -->
+            <section id="portfolio-section" class="page bg-style1">
+            	<div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portfolio">
+                                <!-- Begin page header-->
+                                <div class="page-header-wrapper"style="height: 60px;">
+                                    <div class="container">
+                                        <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
+                                            <h2>Group Member</h2>
+                                            <div class="devider"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End page header-->
+                                <div class="portfoloi_content_area"style="padding-bottom:30px;" >
+                                    <div class="portfolio_content">
+                                        <div class="row"  id="portfolio">
+                                            <div class="col-xs-12 col-sm-4 appsDevelopment">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/parn.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="#">Panida OUNNAITHAM</a>
+                                                        <span>621054551</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 GraphicDesign">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/jean.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="#">Purich TRAINORAPONG</a>
+                                                        <span>6210545581</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 responsive">
+                                                <div class="portfolio_single_content">
+                                                    <img src="img/portfolio/kung.jpg" alt="title"/>
+                                                    <div>
+                                                        <a href="#">Phakarat KHONGPHAISAN</a>
+                                                        <span>6210546412</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End portfolio -->
+        
+        <!-- Plugins JS -->
+		<script src="inc/jquery/jquery-1.11.1.min.js"></script>
+		<script src="inc/bootstrap/js/bootstrap.min.js"></script>
+		<script src="inc/owl-carousel/js/owl.carousel.min.js"></script>
+		<script src="inc/stellar/js/jquery.stellar.min.js"></script>
+		<script src="inc/animations/js/wow.min.js"></script>
+        <script src="inc/waypoints.min.js"></script>
+		<script src="inc/isotope.pkgd.min.js"></script>
+		<script src="inc/classie.js"></script>
+		<script src="inc/jquery.easing.min.js"></script>
+		<script src="inc/jquery.counterup.min.js"></script>
+		<script src="inc/smoothscroll.js"></script>
+
+		<!-- Theme JS -->
+		<script src="js/theme.js"></script>
+
+    </body> 
+        
+            
 </html>
