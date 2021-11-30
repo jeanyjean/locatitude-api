@@ -1,6 +1,6 @@
-Locatitude API Server
+Locatitude API
 ===============
-Locatitude API for getting information from your location.
+**Locatitude API** is an API for getting various information from your location.
 
 This API provides the following :
 * Latitude and Longitude of the current location
