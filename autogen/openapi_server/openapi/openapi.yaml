@@ -1,0 +1,399 @@
+openapi: 3.0.0
+info:
+  description: "This API provides the following \n* Latitude and Longitude of the\
+    \ current location\n* PM 2.5 of the current location\n* Population in the current\
+    \ location\n* Number of Covid 19 cases near the current location\n* Covid19 trend\
+    \ for each province\n* PM2.5 trend for each province\n* Infection rate of 1 million\
+    \ people per day for each province\n"
+  title: Locatitude API
+  version: 1.0.0
+servers:
+- url: /locatitude
+paths:
+  /covid/new/eachday/:
+    get:
+      operationId: controller_get_new_covid19_each_day
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/NewCovidEachDay'
+                type: array
+          description: Success
+      summary: Returns the new covid cases of each day
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /covid/sum/:
+    get:
+      operationId: controller_get_sum_covid19
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SumCovid'
+                type: array
+          description: Success
+      summary: Returns the sum of the new covid cases in each province.
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /covid/trend/:
+    get:
+      operationId: controller_get_covid19_trend
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CovidTrend'
+                type: array
+          description: Success
+      summary: Returns the covid19 trend
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /covid/{date}:
+    get:
+      operationId: controller_get_covid19
+      parameters:
+      - explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Covid19'
+                type: array
+          description: Success
+      summary: Returns the covid19 cases of a specific date
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /latlong/{date}:
+    get:
+      operationId: controller_get_lat_long
+      parameters:
+      - explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          format: date
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LatLong'
+                type: array
+          description: Success
+      summary: Returns the latitude and longitude of a specific date
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /pm/eachday/:
+    get:
+      operationId: controller_get_pm_each_day
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PM25'
+                type: array
+          description: Success
+      summary: Returns the PM2.5 of each day
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /pm/trend/:
+    get:
+      operationId: controller_get_pm_trend
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PmTrend'
+                type: array
+          description: Success
+      summary: Returns the PM2.5 trend
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /pm/{date}:
+    get:
+      operationId: controller_get_pm
+      parameters:
+      - explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          format: date
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PM25'
+                type: array
+          description: Success
+      summary: Returns the PM2.5 of a specific date
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /population/allprovinces:
+    get:
+      operationId: controller_get_provinces_population
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Population'
+                type: array
+          description: Success
+      summary: Returns the population of all the provinces
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /population/{province}:
+    get:
+      operationId: controller_get_population
+      parameters:
+      - explode: false
+        in: path
+        name: province
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Population'
+                type: array
+          description: Success
+      summary: Returns the population of a province
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /province/{date}:
+    get:
+      operationId: controller_get_province
+      parameters:
+      - explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          format: date
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Province'
+                type: array
+          description: Success
+      summary: Returns the province of a specific date
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+  /showall/:
+    get:
+      operationId: controller_get_show_all
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AllDetails'
+                type: array
+          description: Success
+      summary: Returns all the information of each day
+      x-openapi-router-controller: openapi_server.controllers.default_controller
+components:
+  schemas:
+    LatLong:
+      example:
+        timeStamp: timeStamp
+        lat: 0.8008281904610115
+        long: 6.027456183070403
+      properties:
+        timeStamp:
+          title: timeStamp
+          type: string
+        lat:
+          title: lat
+          type: number
+        long:
+          title: long
+          type: number
+      title: LatLong
+      type: object
+    PM25:
+      example:
+        timeStamp: timeStamp
+        pm: 0
+      properties:
+        timeStamp:
+          title: timeStamp
+          type: string
+        pm:
+          title: pm
+          type: integer
+      title: PM25
+      type: object
+    Province:
+      example:
+        timeStamp: timeStamp
+        province: province
+      properties:
+        timeStamp:
+          title: timeStamp
+          type: string
+        province:
+          title: province
+          type: string
+      title: Province
+      type: object
+    Population:
+      example:
+        province: province
+        population: 0
+      properties:
+        province:
+          title: province
+          type: string
+        population:
+          title: population
+          type: integer
+      title: Population
+      type: object
+    Covid19:
+      example:
+        timeStamp: timeStamp
+        newcovid: 0
+        totalcovid: 6
+      properties:
+        timeStamp:
+          title: timeStamp
+          type: string
+        newcovid:
+          title: newcovid
+          type: integer
+        totalcovid:
+          title: totalcovid
+          type: integer
+      title: Covid19
+      type: object
+    CovidTrend:
+      example:
+        AvgCovid: 6.027456183070403
+        province: province
+        population: 0
+      properties:
+        province:
+          title: province
+          type: string
+        population:
+          title: population
+          type: integer
+        AvgCovid:
+          title: AvgCovid
+          type: number
+      title: CovidTrend
+      type: object
+    PmTrend:
+      example:
+        province: province
+        AvgPM: 6.027456183070403
+        population: 0
+      properties:
+        province:
+          title: province
+          type: string
+        population:
+          title: population
+          type: integer
+        AvgPM:
+          title: AvgPM
+          type: number
+      title: PmTrend
+      type: object
+    SumCovid:
+      example:
+        province: province
+        sumcovid: 6
+        population: 0
+      properties:
+        province:
+          title: province
+          type: string
+        population:
+          title: population
+          type: integer
+        sumcovid:
+          title: sumcovid
+          type: integer
+      title: SumCovid
+      type: object
+    NewCovidEachDay:
+      example:
+        timeStamp: timeStamp
+        newcovid: 0
+      properties:
+        timeStamp:
+          title: timeStamp
+          type: string
+        newcovid:
+          title: newcovid
+          type: integer
+      title: NewCovidEachDay
+      type: object
+    AllDetails:
+      example:
+        timeStamp: timeStamp
+        province: province
+        newcovid: 5
+        totalcovid: 2
+        pm: 5
+        lat: 0.8008281904610115
+        long: 6.027456183070403
+        population: 1
+      properties:
+        timeStamp:
+          title: timeStamp
+          type: string
+        lat:
+          title: lat
+          type: number
+        long:
+          title: long
+          type: number
+        province:
+          title: province
+          type: string
+        population:
+          title: population
+          type: integer
+        pm:
+          title: pm
+          type: integer
+        newcovid:
+          title: newcovid
+          type: integer
+        totalcovid:
+          title: totalcovid
+          type: integer
+      title: AllDetails
+      type: object
