@@ -8,3 +8,4 @@ htmlcov/*
 *.swp
 venv/
 .vscode
+openapi-generator-cl-5.3.0.jar
