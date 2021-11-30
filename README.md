@@ -2,7 +2,7 @@ Locatitude API Server
 ===============
 Locatitude API for getting information from your location
 
-## How to run your tests.<br />
+## How to run the API.<br />
 1. Access to a command-line/terminal window and clone/download code from github.
     ```bash
     git clone https://github.com/jeanyjean/locatitude-api.git
