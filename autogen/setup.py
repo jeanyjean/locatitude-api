@@ -33,7 +33,7 @@ setup(
     entry_points={
         'console_scripts': ['openapi_server=openapi_server.__main__:main']},
     long_description="""\
-    This API provides the following  * Latitude and Longitude of the current location * PM 2.5 of the current location * Population in the current location * Number of Covid 19 cases near the current location * Covid19 trend for each province * PM2.5 trend for each province * Infection rate of 1 million people per day for each province 
+    This API provides the following  * Latitude and Longitude of the visited location * PM 2.5 of the visited location * Population in the visited location * Number of Covid 19 cases near the visited location * Covid19 trend for each province * PM2.5 trend for each province * Infection rate of 1 million people per day for each province 
     """
 )
 

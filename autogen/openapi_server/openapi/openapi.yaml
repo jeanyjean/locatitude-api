@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   description: "This API provides the following \n* Latitude and Longitude of the\
-    \ current location\n* PM 2.5 of the current location\n* Population in the current\
-    \ location\n* Number of Covid 19 cases near the current location\n* Covid19 trend\
+    \ visited location\n* PM 2.5 of the visited location\n* Population in the visited\
+    \ location\n* Number of Covid 19 cases near the visited location\n* Covid19 trend\
     \ for each province\n* PM2.5 trend for each province\n* Infection rate of 1 million\
     \ people per day for each province\n"
   title: Locatitude API
