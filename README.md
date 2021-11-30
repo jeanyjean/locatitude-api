@@ -1,15 +1,15 @@
 Locatitude API
 ===============
-**Locatitude API** is an API for getting various information from your location.
+**Locatitude API** is an API for getting various information regarding your visited location.
 
 This API provides the following :
-* Latitude and Longitude of the current location
-* PM 2.5 of the current location
-* Population in the current location
-* Number of Covid 19 cases near the current location
+* Latitude and Longitude of the visited location
+* PM 2.5 of the visited location
+* Population in the visited location
+* Number of Covid 19 cases near the visited location
 * Covid19 trend for each province
 * PM2.5 trend for each province
-* Infection rate of 1 million people per day for each province
+* Infection rate of 1 million people per day for visited province
 
 Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run locally below
 
