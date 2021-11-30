@@ -48,3 +48,8 @@ Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run l
     ![alt text](https://sv1.picz.in.th/images/2021/11/30/6g5vs9.jpg)
 
 10. Click on the button to view each data visualization
+
+## Group member
+1. Panida Ounnaitham 6210545513
+2. Purich Trainorapong 6210545581
+3. Phakarat Khongphaisan 6210546412
