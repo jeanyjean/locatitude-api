@@ -38,6 +38,6 @@ Locatitude API for getting information from your location
 
 9. Open the file `html/index.html` with your web browser <br />
 
-    ![alt text](https://sv1.picz.in.th/images/2021/11/28/6Zt3vI.jpg)
+    ![alt text](https://sv1.picz.in.th/images/2021/11/30/6g5vs9.jpg)
 
-10. Click on the link to view each data visualization
+10. Click on the button to view each data visualization
