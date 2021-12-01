@@ -11,7 +11,7 @@ This API provides the following :
 * PM2.5 trend for each province
 * Infection rate of 1 million people per day for visited province
 
-Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run locally below
+Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run locally(with graphs) below
 
 ## How to run the API locally.<br />
 1. Access to a command-line/terminal window and clone/download code from github.
@@ -32,7 +32,7 @@ Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run l
     ```bash
     python app.py
     ```
-5. Optionally test the API at http://localhost:8080//locatitude/ui
+5. Test the API at http://localhost:8080//locatitude/ui
 
 7. In another terminal, run openapi-to-graphql with CORS
 (Cross-Origin Resource Sharing) enabled.
