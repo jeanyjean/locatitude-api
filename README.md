@@ -11,7 +11,7 @@ This API provides the following :
 * PM2.5 trend for each province
 * Infection rate of 1 million people per day for the visited province
 
-## Prerequisites
+## Required libraries and tools
 * Python 3.7.3 or higher
 * Node.js 16.13.0 or higher
 * OpenAPI 5.3.0 (If you want to rebuild the project)
