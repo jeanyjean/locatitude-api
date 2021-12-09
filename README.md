@@ -9,9 +9,16 @@ This API provides the following :
 * Number of Covid 19 cases near the visited location
 * Covid19 trend for each province
 * PM2.5 trend for each province
-* Infection rate of 1 million people per day for visited province
+* Infection rate of 1 million people per day for the visited province
 
-Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run locally(with graphs) below
+## Prerequisites
+* Python 3.7.3 or higher
+* Node.js 16.13.0 or higher
+* OpenAPI 5.3.0 (If you want to rebuild the project)
+* openapi-to-graphql-cli@2.5.0 (Install using npm)
+* More libraries will be install from requirements.txt
+
+Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run locally (with graphs) below
 
 ## How to run the API locally.<br />
 1. Access to a command-line/terminal window and clone/download code from github.
@@ -20,7 +27,7 @@ Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run l
     ```
 2. Access to a command-line/terminal window and change directory to the directory that contain `locatitude-api` folder, create and activate a virtual environment.
     ```bash
-    python3.9 -m venv env
+    python3.X -m venv env   (x is for your python version)
     env/bin/activate # macOS and Linux
     env\Scripts\activate.bat # Windows
     ```
@@ -49,7 +56,9 @@ Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run l
 
 10. Click on the button to view each data visualization
 
-## Group member
-1. Panida Ounnaitham 6210545513
-2. Purich Trainorapong 6210545581
-3. Phakarat Khongphaisan 6210546412
+## Team Members
+| Student ID   | Name                         | GitHub                                    | Affiliation                           |
+|--------------|------------------------------|-------------------------------------------|---------------------------------------|
+| 6210545581   | Purich Trainorapong          | [jeanyjean](https://github.com/jeanyjean)           | Software and Knowledge Engineering, Kasetsart University |
+| 6210545513   | Panida Ounnaitham            | [PanidaOun](https://github.com/PanidaOun)           | Software and Knowledge Engineering, Kasetsart University |
+| 6210546412   | Phakarat Khongphaisan        | [pakarat044](https://github.com/pakarat044)         | Software and Knowledge Engineering, Kasetsart University |
