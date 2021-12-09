@@ -17,7 +17,7 @@ This API provides the following :
 * OpenAPI 5.3.0 (If you want to rebuild the project)
 * openapi-to-graphql-cli@2.5.0 (Install using npm)
 * More libraries will be install from requirements.txt
-* Create an .env files with the correct information
+* Create a .env files with the correct information for config.py
 
 Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run locally (with graphs) below
 
