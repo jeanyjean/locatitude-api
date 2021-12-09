@@ -14,14 +14,14 @@ This API provides the following :
 ## Required libraries and tools
 * Python 3.7.3 or higher
 * Node.js 16.13.0 or higher
-* OpenAPI 5.3.0 (If you want to rebuild the project)
 * openapi-to-graphql-cli@2.5.0 (Install using npm)
+* OpenAPI 5.3.0 (If you want to rebuild the project)
 * More libraries will be install from requirements.txt
 * Create a .env files with the correct information for config.py
 
 Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run locally (with graphs) below
 
-## How to run the API locally.<br />
+## How to build and run the API locally.<br />
 1. Access to a command-line/terminal window and clone/download code from github.
     ```bash
     git clone https://github.com/jeanyjean/locatitude-api.git
