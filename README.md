@@ -27,7 +27,7 @@ Access [Locatitude Swagger UI](loca-titude.herokuapp.com/locatitude/ui) or run l
     ```
 2. Access to a command-line/terminal window and change directory to the directory that contain `locatitude-api` folder, create and activate a virtual environment.
     ```bash
-    python3.X -m venv env   (x is for your python version)
+    python3.X -m venv env   (x is your python version)
     env/bin/activate # macOS and Linux
     env\Scripts\activate.bat # Windows
     ```
