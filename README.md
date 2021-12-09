@@ -1,7 +1,11 @@
 Locatitude API
 ===============
 **Locatitude API** is an API for getting various information regarding your visited location.
+## Overview
+Thailand has opened up the country enabling people in the country to go outside more so we created this API to track and record where the users go and the number of Covid19 cases and pm2.5 of that location. The API will use the recorded information to find the Covid19 trend and PM2.5 trend of each province. 
+The API can also use the recorded information to find the infection rate of 1 million people per day for each province.
 
+## Features
 This API provides the following :
 * Latitude and Longitude of the visited location
 * PM 2.5 of the visited location
